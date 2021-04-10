@@ -16,6 +16,6 @@ class Simulator:
         ''' Setting up initial particles. '''
         return []
 
-    def evolve(self) -> None:
+    def evolve(self, dt: float = 0.1) -> None:
         ''' Main function, should calculate one step of simulation. '''
         pass
