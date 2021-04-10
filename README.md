@@ -11,6 +11,7 @@ File structure:
 ```
 project
 |─  main.py
+|─  profiling_commands.txt
 │─  README.md    
 │─  requirements.txt
 |─  .gitignore
@@ -22,4 +23,5 @@ project
 |   └─  utilities.py
 │   
 └── examples
+    │─  benchmark.py
     └─  visualization.py

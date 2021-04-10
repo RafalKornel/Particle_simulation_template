@@ -1,4 +1,6 @@
 import time
+import cProfile
+from pstats import Stats
 from random import random, uniform
 
 
@@ -28,9 +30,25 @@ def with_timer(fun, repeat: int = 1):
             result = fun(*args, **kwargs)
             end = time.time()
 
-            times.append((end - start) * 1000 )
+            times.append((end - start) * 1000)
 
         inner.__setattr__('times', times)
         return result
 
     return inner, lambda: sum(times), times
+
+
+def profile(fun, filename: str):
+    '''
+    Runs function from first argument and profiles it with cProfile module.
+    Resulting statistics are then saved to file (specified by filename second arg).
+    '''
+    with cProfile.Profile() as pr:
+        fun()
+
+    with open(filename, 'w') as stream:
+        stats = Stats(pr, stream=stream)
+        stats.strip_dirs()
+        stats.sort_stats('time')
+        stats.dump_stats('.prof_stats')
+        stats.print_stats()
