@@ -6,3 +6,20 @@ Make sure you have required packages before running (mainly matplotlib).
 You can install them by this command:
 
 `pip install -r requirements.txt`
+
+File structure:
+```
+project
+|─  main.py
+│─  README.md    
+│─  requirements.txt
+|─  .gitignore
+|
+└── src
+│   │─  particle.py
+│   │─  simulator.py
+│   │─  visualize.py
+|   └─  utilities.py
+│   
+└── examples
+    └─  visualization.py
